@@ -8,4 +8,5 @@ router.register(r'users', views.UserViewSet,basename='user')
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('api/login/', views.Login_User,name='login'),
 ]
