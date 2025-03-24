@@ -13,7 +13,8 @@ pipenv install pymysql // for sql use
 pip install cryptography
 //-----------------------------------------------------frontend----------------------------------------------------//
 // use npm start // to start server frontend
-npx create-react-app frontend // to install react
+npx create-react-app Frontend // to install react
 npm install axios
+npm install vite
 npm install @mui/material @emotion/react @emotion/styled
 

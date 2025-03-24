@@ -1,10 +1,10 @@
 import './Login.css'
 import React from 'react'
-import logo from './assets/Group 1.png'
-import topright from './assets/topright.png';
-import bottomleft from './assets/bottomleft.png';
-import bottomright from './assets/bottomright.png';
-import google from './assets/google.png';
+import logo from '../assets/Group 1.png'
+import topright from '../assets/topright.png';
+import bottomleft from '../assets/bottomleft.png';
+import bottomright from '../assets/bottomright.png';
+import google from '../assets/google.png';
 //import bottomright2 from './assets/Vector 2.png';
 
 function Login(){
