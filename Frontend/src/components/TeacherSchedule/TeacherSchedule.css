@@ -1,0 +1,414 @@
+.schedule-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 24px;
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.schedule-header-info {
+    text-align: center;
+    flex: 1;
+}
+
+.schedule-header-info h3 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.schedule-header-info h4 {
+    color: #4a5568;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+.schedule-subheader {
+    color: #718096;
+    font-size: 1rem;
+}
+
+.schedule-subheader p {
+    margin: 4px 0;
+}
+
+.schedule-table {
+    display: flex;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.time-slots {
+    min-width: 120px;
+    background: #f7fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.time-slot-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf2f7;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.time-slot {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px;
+}
+
+.time-text {
+    font-size: 0.875rem;
+    color: #4a5568;
+    text-align: center;
+}
+
+.schedule-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.days-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: #edf2f7;
+}
+
+.day-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: #4a5568;
+    position: relative;
+}
+
+.day-text {
+    position: relative;
+    z-index: 1;
+}
+
+.day-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3182ce 0%, #63b3ed 100%);
+    transition: width 0.3s ease;
+}
+
+.day-header:hover::before {
+    width: 80%;
+}
+
+.schedule-cells {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.day-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-cell {
+    height: 100px;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    padding: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-cell:hover {
+    background: rgba(237, 242, 247, 0.5);
+}
+
+.schedule-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1) 0%, rgba(99, 179, 237, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.schedule-cell:hover::before {
+    opacity: 1;
+}
+
+.course-info {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.course-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-name {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+.course-details {
+    display: flex;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #718096;
+}
+
+.course-type {
+    background: #ebf8ff;
+    color: #3182ce;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.course-room {
+    background: #f0fff4;
+    color: #48bb78;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.course-professor {
+    font-size: 0.75rem;
+    color: #718096;
+    margin-top: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .time-slots {
+        min-width: 90px;
+    }
+
+    .time-text {
+        font-size: 0.7rem;
+    }
+
+    .day-text {
+        font-size: 0.8rem;
+    }
+
+    .course-name {
+        font-size: 0.7rem;
+    }
+
+    .course-details {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .course-type,
+    .course-room {
+        padding: 1px 4px;
+        font-size: 0.65rem;
+    }
+
+    .course-professor {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .schedule-container {
+        padding: 12px;
+        margin: 12px;
+    }
+
+    .schedule-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .schedule-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .import-button,
+    .export-button {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+    }
+
+    .schedule-header-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .schedule-header-info h4 {
+        font-size: 1rem;
+    }
+}
+
+.export-button {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.export-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.export-button:hover::before {
+    opacity: 1;
+}
+
+.export-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.export-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-button i {
+    font-size: 1.1em;
+}
+
+.schedule-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.import-button {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.import-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.import-button:hover::before {
+    opacity: 1;
+}
+
+.import-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.import-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.import-button i {
+    font-size: 1.1em;
+}
+
+.import-error {
+    background: #fff5f5;
+    color: #c53030;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideIn 0.3s ease;
+}
+
+.import-error::before {
+    content: '⚠️';
+    font-size: 1.1em;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

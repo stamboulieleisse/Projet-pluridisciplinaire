@@ -40,7 +40,7 @@ const Login = ({ onUserAdded }) => {
             if (typeof onUserAdded === 'function') {
                 onUserAdded(response.data.user);
             }
-            navigate('/users');
+            navigate('/home');
           }
       } catch (error) {
           console.error('Login error details:', {

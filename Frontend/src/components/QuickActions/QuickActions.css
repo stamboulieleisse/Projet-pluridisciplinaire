@@ -1,0 +1,122 @@
+.quick-actions {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quick-actions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quick-actions-header h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.see-all {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.see-all:hover {
+    text-decoration: underline;
+}
+
+.pending-requests {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.request-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.request-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.swap-icon {
+    width: 40px;
+    height: 40px;
+    background: #e3f2fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #007bff;
+}
+
+.request-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 4px 0;
+}
+
+.request-date {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.request-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.slot-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slot-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.request-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+} 
