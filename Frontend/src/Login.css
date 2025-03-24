@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  #left, #right {
+    height: 100;
+  }
+  
+  #left {
+    padding: 15px;
+  }
+  
+  #left div {
+    width: 684px;
+    background-color: #222831;   
+    height:680px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+  }
+  
+  #right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  input[type="text"] {
+    width: 452px;
+    height: 51px;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#discription{
+    text-align: center;
+    width: 449px;
+}
+
+#submit{
+    text-align: center;
+    font-weight: bold;
+    background-color: #005691;
+    color: white;
+    border-radius: 6px;
+    width:452px ;
+    height:51px ;
+    border: none;
+}
+
+a{
+    color: #004A69;
+    text-decoration: none;
+}
+
+p{
+    font-family: "Lato", sans-serif;
+}
+
+#password{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+#topright{
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #ddd;
+  width: 60%;
+}
+
+#google{
+  width:452px ;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  gap: 40px;
+}
+
+#google img{
+  width: 25px;
+  height: 25px;
+}
+
+#google:hover{
+  background-color: #004A69;
+  color: white;
+  
+}
+
+button{
+  cursor:pointer;
+}
