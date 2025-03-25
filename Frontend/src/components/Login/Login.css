@@ -42,12 +42,13 @@
     gap: 30px;
   }
   
-  input[type="text"] {
+  input{
     width: 452px;
     height: 51px;
     padding: 20px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    margin-bottom: 20px;
 }
 
 #discription{
@@ -89,6 +90,8 @@ p{
 }
 
 hr {
+  position: relative;
+  left : -15px;
   border: none;
   height: 2px;
   background-color: #ddd;
@@ -96,6 +99,8 @@ hr {
 }
 
 #google{
+  position: relative;
+  right: 15px;
   width:452px ;
   height: 51px;
   display: flex;
