@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -23,9 +27,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$m$pa&&s13i-d1!_nz*k1qqarl3klh5^_bj9z6l8rcv((xt+j('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+# Print which database is being used
+print("\n" + "="*50)
+if DEBUG:
+    print("Local MySQL Database")
+else:
+    print("Supabase PostgreSQL Database")
+
+print("="*50 + "\n")
+
+ALLOWED_HOSTS = ['*']  # Configure this appropriately for production
 
 
 # Application definition
@@ -39,7 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'Users'
+    'Users',
+    'Acadimic'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +75,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
+
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -80,6 +95,8 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+    'access-control-allow-origin',
+    'access-control-allow-credentials',
 ]
 
 ROOT_URLCONF = 'Backend.urls'
@@ -106,20 +123,35 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'project_pluridisciplinaire',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '3306',
+if DEBUG:
+    # Local development database (MySQL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'project_pluridisciplinaire',
+            'USER': 'root',
+            'PASSWORD': '1234',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    # Production database (Supabase PostgreSQL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('dbname'),
+            'USER': os.getenv('user'),
+            'PASSWORD': os.getenv('password'),
+            'HOST': os.getenv('host'),
+            'PORT': os.getenv('port'),
+        }
+    }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Allow React frontend to communicate
-]
+# Remove duplicate CORS_ALLOWED_ORIGINS
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",  # Allow React frontend to communicate
+# ]
 
 
 # Password validation
@@ -165,3 +197,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user model
 AUTH_USER_MODEL = 'Users.User'
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Or your email provider's SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Scope67890@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'jqra juwo ferc xftg'  # Your email password or app password
+DEFAULT_FROM_EMAIL = 'SCOPE Admin <SCOPEADMIN@SCOPE.com>'

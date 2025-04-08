@@ -1,5 +1,6 @@
 //--------------------------------------------------BackEnd----------------------------------------------------//
 //use python manage.py runserver //to run server
+// use djangoenv\Scripts\activate  \\ to run the env of django
 //use python manage.py migrate  //to make changes in the database
 //use python manage.py makemigrations //to check if we have changes in the scripts
 //use python manage.py startapp Users //name of the app
@@ -11,8 +12,11 @@ pip install mysqlclient //using mysql for database
 pip install pipenv
 pipenv install pymysql // for sql use
 pip install cryptography
+pip install supabase // for Supabase connection
+pip install python-dotenv // for environment variables
+pip install python-dotenv psycopg2
 //-----------------------------------------------------frontend----------------------------------------------------//
-// use npm start // to start server frontend
+// use npm start   or  npm run dev // to start server frontend
 npx create-react-app Frontend // to install react
 npm install axios
 npm install vite
