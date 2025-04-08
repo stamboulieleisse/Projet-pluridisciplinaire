@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    padding: 15px;
+}
+
+#left {
+    width: 684px;
+    background-color: #222831;   
+    height:680px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+  }
+
+  #right {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    gap: 30px; 
+  }
+
+  h1{
+    font-family: 'montserrat', sans-serif;
+  }
+
+  p{
+    font-family: 'lato', sans-serif;
+    color: #000000;
+    margin-top: 10px;
+  }
+
+  #email{
+    width: 450px;
+    height: 50px;
+    padding-left: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  #contact{
+    color: #004A69;
+    text-decoration: none;
+  }
+
+  #send{
+    text-align: center;
+    font-weight: bold;
+    background-color: #005691;
+    color: white;
+    border-radius: 6px;
+    width:452px ;
+    height:51px ;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #contactus{
+    font-size: 14px;
+  }
+
+  #home{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    border: 1px solid #ffffff;
+    background-color: #222831;
+    color: white;
+    width: 130px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+
+  /* #send::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 0.9em;
+    z-index: -10;
+    filter: blur(0);
+    transition: filter 0.4s ease;
+  }
+  
+  #send:hover::before {
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    filter: blur(1.2em);
+  }
+  #send:active::before {
+    filter: blur(0.2em);
+  } */
