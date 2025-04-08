@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+.venv/
+*_pycache_/
+*.pyc
+
+djangoenv/
