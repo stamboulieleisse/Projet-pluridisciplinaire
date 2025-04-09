@@ -15,7 +15,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <Navbar />
+            <Navbar id='navbar' />
             <div className="main-content">
                 <div className="left-section">
                     <div className="date-section">
