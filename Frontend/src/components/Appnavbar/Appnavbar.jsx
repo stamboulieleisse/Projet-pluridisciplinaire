@@ -57,7 +57,7 @@ function Appnavbar(){
                 
           
                 <div className="nav" ref={navRef}>
-                  <ul>
+                  <ul id="navlist">
                     {["home", "Pending Requests", "Incoming Requests", "Time Swap"].map((link, index) => (
                       <li
                         key={link}
