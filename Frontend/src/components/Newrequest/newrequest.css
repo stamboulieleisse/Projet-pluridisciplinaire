@@ -1,0 +1,132 @@
+/* newrequest.css */
+.newrequest {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+}
+
+.newrequest .container {
+    padding: 20px;
+}
+
+.newrequest .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background-color: #007AFF;
+}
+
+.newrequest .top img {
+    width: 24px;
+    height: 24px;
+}
+
+.newrequest .top h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.newrequest .top button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.newrequest .top button:hover {
+    color: #333;
+}
+
+.newrequest > div > div:not(.top) {
+    margin-bottom: 20px;
+}
+
+.newrequest p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.newrequest input[type="text"],
+.newrequest input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.newrequest input[type="text"]:focus,
+.newrequest input[type="date"]:focus {
+    outline: none;
+    border-color: #0083FF;
+}
+
+.newrequest > div > div:has(input) {
+    position: relative;
+}
+
+.newrequest > div > div:has(input) img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+}
+
+.newrequest ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.newrequest ul li {
+    padding: 12px 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newrequest ul li:hover {
+    background-color: #eef7ff;
+    color: #0083FF;
+}
+
+.newrequest .indicator {
+    height: 4px;
+    background-color: #0083FF;
+    width: 100px;
+    border-radius: 2px;
+    margin: 15px 0;
+}
+
+.indicator{
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
