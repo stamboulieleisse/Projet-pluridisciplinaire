@@ -1,0 +1,176 @@
+import React, { useState } from 'react';
+import './TimeSwap.css';
+
+const TimeSwap = () => {
+  const [filters, setFilters] = useState({
+    node: false,
+    inPerson: false,
+    online: false,
+    timeSlots: Array(5).fill(false),
+    classTypes: {
+      cour: false,
+      td: false,
+      tp: false
+    }
+  });
+
+  const handleFilterToggle = (filterName) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterName]: !prev[filterName]
+    }));
+  };
+
+  const handleTimeSlotToggle = (index) => {
+    const newTimeSlots = [...filters.timeSlots];
+    newTimeSlots[index] = !newTimeSlots[index];
+    setFilters(prev => ({
+      ...prev,
+      timeSlots: newTimeSlots
+    }));
+  };
+
+  const handleClassTypeToggle = (type) => {
+    setFilters(prev => ({
+      ...prev,
+      classTypes: {
+        ...prev.classTypes,
+        [type]: !prev.classTypes[type]
+      }
+    }));
+  };
+
+  const resetFilters = () => {
+    setFilters({
+      node: false,
+      inPerson: false,
+      online: false,
+      timeSlots: Array(5).fill(false),
+      classTypes: {
+        cour: false,
+        td: false,
+        tp: false
+      }
+    });
+  };
+
+  // Mock data for requests
+  const requests = Array(4).fill({
+    teacher: "Teacher 3",
+    department: "DRAI",
+    currentSlot: "Sunday 8:00 - 9:30 | Course 145 T",
+    desiredSlot: "Monday 8:00 - 9:30 | Course 313 T"
+  });
+
+  return (
+    <div className="time-swap-container">
+      <div className="scope-section">
+        <h1>Scope</h1>
+        <div className="scope-links">
+          <a href="#">Home</a>
+          <a href="#">Pending Requests</a>
+          <a href="#">Incoming Requests</a>
+          <a href="#">Time Swap</a>
+        </div>
+      </div>
+
+      <div className="content-area">
+        <div className="filters-section">
+          <h2>Filters</h2>
+          <button className="reset-btn" onClick={resetFilters}>Reset</button>
+          
+          <div className="filter-group">
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.node} 
+                onChange={() => handleFilterToggle('node')} 
+              />
+              Node
+            </label>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.inPerson} 
+                onChange={() => handleFilterToggle('inPerson')} 
+              />
+              In-Person
+            </label>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.online} 
+                onChange={() => handleFilterToggle('online')} 
+              />
+              Online
+            </label>
+          </div>
+
+          <h3>Time Slot</h3>
+          <div className="time-slots">
+            {filters.timeSlots.map((checked, index) => (
+              <label key={index}>
+                <input 
+                  type="checkbox" 
+                  checked={checked} 
+                  onChange={() => handleTimeSlotToggle(index)} 
+                />
+                8:00 - 9:30
+              </label>
+            ))}
+          </div>
+
+          <h3>Class type</h3>
+          <div className="class-types">
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.classTypes.cour} 
+                onChange={() => handleClassTypeToggle('cour')} 
+              />
+              Cour
+            </label>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.classTypes.td} 
+                onChange={() => handleClassTypeToggle('td')} 
+              />
+              TD
+            </label>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={filters.classTypes.tp} 
+                onChange={() => handleClassTypeToggle('tp')} 
+              />
+              TP
+            </label>
+          </div>
+
+          <h3>Location</h3>
+          <div className="location-search">
+            <input type="text" placeholder="New Request → Search for request..." />
+          </div>
+        </div>
+
+        <div className="requests-section">
+          {requests.map((request, index) => (
+            <div key={index} className="request-card">
+              <div className="teacher-info">
+                <span className="teacher-name">{request.teacher}</span>
+                <span className="department">{request.department}</span>
+              </div>
+              <div className="slot-info">
+                <span className="current-slot">{request.currentSlot}</span>
+                <span className="desired-slot">{request.desiredSlot}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TimeSwap;
